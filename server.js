@@ -10,9 +10,10 @@ const randomInterval = (min, max) => {
 app.get('/images', ({ query }, res) => {
   const i = (query.limit) ? images.slice(0, parseInt(query.limit)) : images;
 
-  setTimeout(() => {
-    return res.status(200).json(i);
-  }, randomInterval(500, 1500));
+  /* remove setTimeout in order to speed up API request */
+  // setTimeout(() => {
+  return res.status(200).json(i);
+  // }, randomInterval(500, 1500));
 });
 
 app.listen(5000, () => {

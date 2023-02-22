@@ -9,16 +9,30 @@ const App = () => {
   const { image, isShown, toggle } = useImageModal();
 
   useEffect(() => {
-    fetch('images?limit=10')
-      .then(res => res.json())
-      .then(data => {
-        console.log('Success:', data);
+    /* begin API speed test upon first mount of app */
+    console.time("API speed test");
+
+    fetch("images?limit=10")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success:", data);
         setImages(data);
       })
-      .catch(error => {
-        console.error('Error:', error);
+      .catch((error) => {
+        console.error("Error:", error);
       });
   }, []);
+
+  useEffect(() => {
+    /*
+     ** End API speed test only when images state has been updated and
+     ** images are present.
+     ** A similar test can also be performed using the dev tools window
+     ** in Chrome (or equivalent), and analyzing the waterfall chart for the
+     ** API request on the Network tab.
+     */
+    if (images?.length > 0) console.timeEnd("API speed test");
+  }, [images]);
 
   return (
     <div className="app">
