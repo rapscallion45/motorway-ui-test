@@ -17,15 +17,16 @@ const App = () => {
   }, []);
 
   return (
-    <div className='app'>
-      {
-        images && images.map(img => (
-          <div key={img.id} >
-            <img src={`${img.url}.jpg`} alt=''/>
-            <img src={`${img.user.profile_image}.webp`} alt=''/>
-          </div>
-        ))
-      }
+    <div className="app">
+      <ul className="grid">
+        {images &&
+          images.map((img) => (
+            <li key={img.id} className="grid-item">
+              <img src={`${img.url}.jpg`} alt="" />
+              {/* <img src={`${img.user.profile_image}.webp`} alt="" /> */}
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }
