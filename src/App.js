@@ -23,7 +23,9 @@ const App = () => {
           images.map((img) => (
             <li key={img.id} className="grid-item">
               <img src={`${img.url}.jpg`} alt="" />
-              {/* <img src={`${img.user.profile_image}.webp`} alt="" /> */}
+              <div className="profile-pic-container">
+                <img src={`${img.user.profile_image}.webp`} alt="" />
+              </div>
             </li>
           ))}
       </ul>
