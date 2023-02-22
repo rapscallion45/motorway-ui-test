@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import InputForm from "./components/InputForm/InputForm";
 import ImageModal from "./components/ImageModal/ImageModal";
 import useImageModal from "./hooks/useImageModal";
 import "./App.css";
@@ -40,6 +41,7 @@ const App = () => {
             </li>
           ))}
       </ul>
+      <InputForm />
       <ImageModal image={image} isShown={isShown} close={toggle} />
     </div>
   );
