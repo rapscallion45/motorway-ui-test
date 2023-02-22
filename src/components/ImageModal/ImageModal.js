@@ -26,7 +26,9 @@ const ImageModal = ({ image, isShown, close }) =>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <p>{image?.user?.name}</p>
+              <div className="modal-image-container">
+                <img src={image} alt="" />
+              </div>
             </div>
           </div>
         </>,

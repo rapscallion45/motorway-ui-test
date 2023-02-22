@@ -28,13 +28,13 @@ const App = () => {
               <img
                 src={`${img.url}.jpg`}
                 alt={`${img.alt_description}`}
-                onClick={() => toggle(img)}
+                onClick={() => toggle(`${img.url}.jpg`)}
               />
               <div className="profile-pic-container">
                 <img
                   src={`${img.user.profile_image}.webp`}
                   alt={`${img.user.username}`}
-                  onClick={() => toggle(img)}
+                  onClick={() => toggle(`${img.user.profile_image}.webp`)}
                 />
               </div>
             </li>
